@@ -44,14 +44,14 @@ soprano = \relative c'' {
 alto = \relative c' {
   \global
   R1*7 r1 r4  d4.\f^"(tutti coro)" d8 cs cs d (c) b (e) a,4 f' |
-  e4 fs g8 (f) e4~ e8 d16 cs d8 a' bf4 (a~) a4. g8 f e16 d a'8 8 |
+  e4 fs g8 ( f  e4~ e8 ) d16 cs d8 a' bf4 (a~) a4. g8 f e16 d a'8 8 |
   a8 bf g8. g16 a4 r4 r8 a8 a a a8. g16 f4 r8 a8 a a  a8. bf16 a4 a8. a16 bf4 r2 g4\p g8 g f2 |
   %p2
   f4 r4 r2 R1  \bar "||"  R1*5 \bar "||"
   r4 r r8 c'8\f a f r8 f d bf' r8 a fs d16 d bf'4. bf8 a bf bf (a) |
   bf4 r4 r8 d,8 g4 r8 g8 bf4. bf8 (a) g fs4 e g8 g fs8. fs16 g4 r r2 R1 |
   %p3
-  r2 r8 a8\f\~ a16 ( bf ) a ( g ) f ( a g f ) e ( g f e ) d (cs d e f e ) d (c) b8. b16 b4 c d |
+  r2 r8 a8~\f a16 ( bf ) a ( g ) f ( a g f ) e ( g f e ) d (cs d e f e ) d (c) b8. b16 b4 c d |
   e8 e a4~ a16 ( d, ) e (fs) g4~ g8 g fs fs g4 (a
   bf16 a g8~ g16 a ) bf ( g ) c ( bf ) a ( bf ) c ( bf ) a ( bf ) g8. g16 g4 r8 c4 bf8 |
   % p4
@@ -122,8 +122,20 @@ et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
 }
 
 altoVerse = \lyricmode {
-  % Lyrics follow here.
-
+ Re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
+ do -- na e -- is Do -- mi -- ne,
+ do -- na e -- is Do -- mi -- ne:
+et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
+% sop solo here
+Ex -- au -- di, ex -- au -- di, ex -- au -- di o -- ra -- ti -- o -- nem me -- am,
+ad te ad te o -- mnis om -- nis ca -- ro ve -- ni -- et.
+Do -- na, do -- na e -- is Do -- mi -- ne do -- na,
+do -- na e -- is re -- qui -- em ae -- ter -- nam,
+do -- na, e -- is Do -- mi -- ne,
+do -- na e -- is,
+do -- na e -- is, do -- na:
+ et lux per -- pe -- tu -- a et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
+et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
 }
 
 tenorVerse = \lyricmode {
