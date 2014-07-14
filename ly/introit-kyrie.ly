@@ -81,12 +81,36 @@ tenor = \relative c' {
 
 bass = \relative c {
   \global
-  % Music follows here.
-
+  %{ start of Kyrie!
+  a4.\f a8 f4 bf cs,4. cs8 d4 r8 d e4. ( d16 e f8 e16 f g8 f16 g |
+  a8 g f e d c ) b ( e ) a, f'16 ( e ) d ( b ) c ( d ) e4 r r a2 ( g16 f ) e ( d ) |
+  c4 b8 ( f' ) e4. ( fs16 gs a ) fs ( gs ) a8 a, b ( cs ) d r4 r8 e8 e e f16 ( g f e f g e f
+  % p2
+  g16 a g f g a f g a8 bf16 a g f e d cs8 e a g f16 e d c b4 c ) d e r8 e |
+  a4~ ( a16 g f e f8 d ) g4 c,8 a f'8. f16 e4 r r8 a16 ( g ) f8 ef d4 r |
+r8 g16 ( f ) e8 ( d c4 d8 ) e f4 r r8 c8 c c d16 ( e d c d e c d e f e d e f d e |
+  %}
+R1*7 r4 d4.\f^"(tutti coro)" d8 cs cs d4 e f e d e f8 ( e ) d ( g ) |
+c,4 d g c, f8 f bf a g f16 e a8 g f ( e ) d ( cs ) d d c c |
+bf8 bf bf'8. bf16 a4 r r8 f8 f f f8. f16 f4 r8  f8 f f f8. f16 f4 ef8. ef16 d4 r2 ef4\p e8 e f2 |
+% p2
+bf,4 r4 r2  R1 \bar "||" R1*5 \bar "||"
+r4 r8 g'8\f a a r a bf bf, r8 bf' fs4 fs8 fs g8 g16 g g8 g c, ( d16. ef32 ) f4 |
+bf,4 r8 bf' g4 r8 g e4 e8 e ef ef ef ef d4 cs d4. d8 g,4 r r2 R1 |
+% p3
+r4 d'4.\f d8 cs cs d4 ( e f d ) e r r2 |
+r8 a ( fs ) d g8. ( a16 bf8 ) g d' d, r4 r8 g4 fs8 |
+g8. g,16 g4 r2 r8 c'~ c16 ( d ) c ( bf ) a ( c bf a ) g ( bf a g ) |
+f16 ( g a8~ a16 bf ) a ( g ) f ( a g f ) e ( g f e ) d ( ef f8~ f16 g ) f ( e ) d ( f e d c e d c ) bf4 r4 r8 bf' bf bf |
+a8. a16 a4 r8 a a a gs8. gs16 gs4 gs gs8 gs a a r8 a\p d,4 cs d8. d16 c4 b bf8 bf a2 a\fermata
 }
 
 sopranoVerse = \lyricmode {
-  % Lyrics follow here.
+Requien aeternam dona eis Domine,
+requiem aeternam dona eis Domine,
+et lux perpetua, et lux perpetua luceat, luceat eis.
+
+
 
 }
 
