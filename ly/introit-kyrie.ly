@@ -28,12 +28,12 @@ soprano = \relative c'' {
   %p2
   bf4 r r2 R1 \bar "||"
   d4^"(soprano solo)" f (d8) d d4~ d8 d ef4 d8 d c4 bf r4 r2 c4 c c8 c c8. c16 |
-  d8 d g, g bf4 (a8.) a16 \bar "||" g4 r r2 d'4^"(tutti coro)"\f f (d8) d d4~ d8 d ef4 d8 d c4 bf r4 r2 c4 c c8 c c8. c16 |
-  d8 d g, g bf4 (a8.) a16  g4 r r2 R1 |
-  %p3
-  R1 R1 r8 e'8\f\~ e16 (f) e (d) c (e d c ) b (d c b) |
-  a16 (b c8~) c16 (bf) c d bf4~ bf16 (a) bf (c) a8. a16 a4 d4. d8 |
-  d16 (c bf c d c ) d (e) f8 c f4~ f8 f e e f4 (g
+  d8 d g, g bf4 (a8.) a16 \bar "||" g4 r r2 d'4^"(tutti coro)"\f f  ( d )  d4~ d8 d d d ef d  c4 bf r4 r2 |
+  c4 c c4. c8 d4 g, bf ( a8. ) a16  g4 r r2 R1  |
+    %p3
+  R1 R1 r8 e'8~\f e16 ( f ) e ( d ) c ( e d c ) b ( d c b ) |
+  a16 ( b c8~c16   bf  c d bf4~ bf16 a ) bf ( c ) a8. a16 a4 d4. d8 |
+  d16 ( c bf c d c ) d (e) f8 c f4~ f8 f e e f4 (g
   %p4
   a4 ) cs,8 cs d4 (e f) a,8 a bf4 (c) d8 d d d f8. e16 d4 |
   r8 d8 d d f8. e16 d4 r4 f2 e8 d d cs r8 a8 a4 a a8. a16 a4 a gs8 a f4 (e8 d) e2\fermata
@@ -106,12 +106,19 @@ a8. a16 a4 r8 a a a gs8. gs16 gs4 gs gs8 gs a a r8 a\p d,4 cs d8. d16 c4 b bf8 b
 }
 
 sopranoVerse = \lyricmode {
-Requien aeternam dona eis Domine,
-requiem aeternam dona eis Domine,
-et lux perpetua, et lux perpetua luceat, luceat eis.
-
-
-
+Re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
+re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
+et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
+% solo
+Te de -- cet hy -- mnus De -- us in Si -- on,
+et ti -- bi red -- de -- tur vo -- tum in Je -- ru -- sa -- lem.
+% tutti
+Ex -- au -- di o -- ra -- ti -- o -- nem me -- am ad te o -- mnis ca -- ro ve -- ni -- et.
+Do -- na, do -- na e -- is Do -- mi -- ne do -- na,
+do -- na e -- is re -- qui -- em ae -- ter -- nam,
+ae -- ter -- nam ae -- ter -- nam: et lux per -- pe -- tu -- a,
+et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
+et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
 }
 
 altoVerse = \lyricmode {
