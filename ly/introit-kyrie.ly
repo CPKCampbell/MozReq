@@ -12,9 +12,12 @@
 }
 
 \paper {
+
   #(set-paper-size "letter")
   %annotate-spacing = ##t
   ragged-last-bottom = ##t
+  left-margin =  2.5\cm
+  right-margin = 1.0\cm
 }
 
 global = {
@@ -24,19 +27,22 @@ global = {
   \dynamicUp
   \override MultiMeasureRest.expand-limit = #3
   \compressFullBarRests
+  \set Timing.beamExceptions = #'()
+  \set Timing.baseMoment = #(ly:make-moment 1/4)
+  \set Timing.beatStructure = #'(1 1 1 1)
 }
 
 #(set-global-staff-size 18)
 
 soprano = \relative c'' {
   \global
-  R1*7 r1 r2 r4 a4\f~ a8 a gs gs a4 (b) |
+  R1*7 R1 r2 r4 a4\f~^\markup { \italic \small "(tutti coro)" } a8 a gs gs a4 (b) |
   c4 bf8 a bf4 a8 (g) a8 a16 a d4. d8 cs8 cs d4 (e) f e8 e |
   d8 d d8. d16 cs4 r r8 c8 c c c8. bf16 a4 r8 ef'8 ef ef ef8. d16 c4 g'8. g16 f4 r2 c4\p df8 bf bf4 (a) |
   %p2
   bf4 r r2 R1 \bar "||"
   d4^"(soprano solo)" f (d8) d d4~ d8 d ef4 d8 d c4 bf r4 r2 c4 c c8 c c8. c16 |
-  d8 d g, g bf4 (a8.) a16 \bar "||" g4 r r2 d'4^"(tutti coro)"\f f  ( d )  d4~ d8 d d d ef d  c4 bf r4 r2 |
+  d8 d g, g bf4 (a8.) a16 \bar "||" g4 r r2 d'4^\markup { \italic \small "(tutti coro)" }\f f  ( d )  d4~ d8 d d d ef d  c4 bf r4 r2 |
   c4 c c4. c8 d4 g, bf ( a8. ) a16  g4 r r2 R1  |
   %p3
   R1 R1 r8 e'8~\f e16 ( f ) e ( d ) c ( e d c ) b ( d c b ) |
@@ -45,13 +51,13 @@ soprano = \relative c'' {
   %p4
   a4 ) cs,8 cs d4 (e f) a,8 a bf4 (c) d8 d d d f8. e16 d4 |
   r8 d8 d d f8. e16 d4 r4 f2 e8 d d cs r8 a8 a4 a a8. a16 a4 a gs8 a f4 (e8 d) e2\fermata
-
+  \bar "|."
 
 }
 
 alto = \relative c' {
   \global
-  R1*7 r1 r4  d4.\f^"(tutti coro)" d8 cs cs d (c) b (e) a,4 f' |
+  R1*7 R1 r4  d4.\f^\markup { \italic \small "(tutti coro)" } d8 cs cs d (c) b (e) a,4 f' |
   e4 fs g8 ( f  e4~ e8 ) d16 cs d8 a' bf4 (a~) a4. g8 f e16 d a'8 8 |
   a8 bf g8. g16 a4 r4 r8 a8 a a a8. g16 f4 r8 a8 a a  a8. bf16 a4 a8. a16 bf4 r2 g4\p g8 g f2 |
   %p2
@@ -70,7 +76,7 @@ alto = \relative c' {
 
 tenor = \relative c' {
   \global
-  R1*7 r2 r4 a4~\f^"(tutti coro)" a8 a gs gs a4 ( g f) d' c d |
+  R1*7 r2 r4 a4~\f^\markup { \italic \small "(tutti coro)" } a8 a gs gs a4 ( g f) d' c d |
   e8 ( a, ) d ( c ) bf4.  c16 bf a8. a16 f'8 f e4 e a,4. a8 a a a c16 a |
   f'8 f d8. d16 e4 r r8 a,8 a a a8. bf16 c4 r8 c c c c8. d16 ef4 c8. c16 d4 r2 bf4\p g8 df' c2 |
   % p2
@@ -98,7 +104,7 @@ bass = \relative c {
   a4~ ( a16 g f e f8 d ) g4 c,8 a f'8. f16 e4 r r8 a16 ( g ) f8 ef d4 r |
 r8 g16 ( f ) e8 ( d c4 d8 ) e f4 r r8 c8 c c d16 ( e d c d e c d e f e d e f d e |
   %}
-  R1*7 r4 d4.\f^"(tutti coro)" d8 cs cs d4 ( e ) f e d e f8 ( e ) d ( g ) |
+  R1*7 r4 d4.\f^\markup { \italic \small "(tutti coro)" } d8 cs cs d4 ( e ) f e d e f8 ( e ) d ( g ) |
   c,4 d g c, f8 f bf a g f16 e a8 g f ( e ) d ( cs ) d d c c |
   bf8 bf bf'8. bf16 a4 r r8 f8 f f f8. f16 f4 r8  f8 f f f8. f16 f4 ef8. ef16 d4 r2 ef4\p e8 e f2 |
   % p2
@@ -223,10 +229,13 @@ rehearsalMidi = #
     \addlyrics { \bassVerse }
   >>
   \layout {
-    indent = 2\cm
+    \context {
+      \Score
+      \override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1/8)
+    }
     \context {
       \ChoirStaff
-       \override StaffGrouper.staff-staff-spacing =
+      \override StaffGrouper.staff-staff-spacing =
       #'((basic-distance .18)
          (minimum-distance . 12)
          (padding . 1))
@@ -234,7 +243,10 @@ rehearsalMidi = #
     \context {
       \Voice
       \override TextScript.padding = #1
-
+    }
+    \context {
+      \Lyrics
+      \override LyricSpace.minimum-distance = #1.0
     }
   }
   \midi {}
