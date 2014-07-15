@@ -8,17 +8,25 @@
   composer = "Wolfganf Amadeus Mozart"
   arranger = "Franz Xaver Süßmayr"
   meter = "Adagio"
+  tagline = "engraved with LilyPond - CPKCMusic"
 }
 
 \paper {
   #(set-paper-size "letter")
+  %annotate-spacing = ##t
+  ragged-last-bottom = ##t
 }
 
 global = {
   \key d \minor
   \time 4/4
   \tempo 4=48
+  \dynamicUp
+  \override MultiMeasureRest.expand-limit = #3
+  \compressFullBarRests
 }
+
+#(set-global-staff-size 18)
 
 soprano = \relative c'' {
   \global
@@ -30,7 +38,7 @@ soprano = \relative c'' {
   d4^"(soprano solo)" f (d8) d d4~ d8 d ef4 d8 d c4 bf r4 r2 c4 c c8 c c8. c16 |
   d8 d g, g bf4 (a8.) a16 \bar "||" g4 r r2 d'4^"(tutti coro)"\f f  ( d )  d4~ d8 d d d ef d  c4 bf r4 r2 |
   c4 c c4. c8 d4 g, bf ( a8. ) a16  g4 r r2 R1  |
-    %p3
+  %p3
   R1 R1 r8 e'8~\f e16 ( f ) e ( d ) c ( e d c ) b ( d c b ) |
   a16 ( b c8~c16   bf  c d bf4~ bf16 a ) bf ( c ) a8. a16 a4 d4. d8 |
   d16 ( c bf c d c ) d (e) f8 c f4~ f8 f e e f4 (g
@@ -62,20 +70,20 @@ alto = \relative c' {
 
 tenor = \relative c' {
   \global
- R1*7 r2 r4 a4~\f^"(tutti coro)" a8 a gs gs a4 ( g f) d' c d |
- e8 ( a, ) d ( c ) bf4.  c16 bf a8. a16 f'8 f e4 e a,4. a8 a a a c16 a |
- f'8 f d8. d16 e4 r r8 a,8 a a a8. bf16 c4 r8 c c c c8. d16 ef4 c8. c16 d4 r2 bf4\p g8 df' c2 |
- % p2
- d4 r4 r2 R1 \bar "||" R1*5 \bar "||"
- r4 r8 ef8\f c f r8 f d bf r8 d a4 a8 a bf8 d g f ef ( f4 ef8 ) |
- d4 r8 d bf4  r8 bf g4 g2 fs8 ( g ) a a bf g d'4. c8 bf4 r r2 R1 |
- %p 3
- R1 r2 r4 a4~\f a8 a gs gs a4 ( b ) |
- c4 r4 r2 r8 d8~ d16 ( ef ) d ( c ) bf ( d c bf ) a ( c bf a ) |
- g8. ( a16 bf a ) g ( bf ) a ( g f g a g ) a ( f ) c'8 c, r4 c'4 ( e ) |
- % p4
- f4 r a, ( cs ) d r4 f, ( a ) bf r4 r8 d d d |
- f8. e16 d4 r8 d d d d8. c16 b4 d e8 f f e r8 cs8\p d4 e d8. d16 a4 f e8 d a'2 a\fermata
+  R1*7 r2 r4 a4~\f^"(tutti coro)" a8 a gs gs a4 ( g f) d' c d |
+  e8 ( a, ) d ( c ) bf4.  c16 bf a8. a16 f'8 f e4 e a,4. a8 a a a c16 a |
+  f'8 f d8. d16 e4 r r8 a,8 a a a8. bf16 c4 r8 c c c c8. d16 ef4 c8. c16 d4 r2 bf4\p g8 df' c2 |
+  % p2
+  d4 r4 r2 R1 \bar "||" R1*5 \bar "||"
+  r4 r8 ef8\f c f r8 f d bf r8 d a4 a8 a bf8 d g f ef ( f4 ef8 ) |
+  d4 r8 d bf4  r8 bf g4 g2 fs8 ( g ) a a bf g d'4. c8 bf4 r r2 R1 |
+  %p 3
+  R1 r2 r4 a4~\f a8 a gs gs a4 ( b ) |
+  c4 r4 r2 r8 d8~ d16 ( ef ) d ( c ) bf ( d c bf ) a ( c bf a ) |
+  g8. ( a16 bf a ) g ( bf ) a ( g f g a g ) a ( f ) c'8 c, r4 c'4 ( e ) |
+  % p4
+  f4 r a, ( cs ) d r4 f, ( a ) bf r4 r8 d d d |
+  f8. e16 d4 r8 d d d d8. c16 b4 d e8 f f e r8 cs8\p d4 e d8. d16 a4 f e8 d a'2 a\fermata
 
 }
 
@@ -90,70 +98,81 @@ bass = \relative c {
   a4~ ( a16 g f e f8 d ) g4 c,8 a f'8. f16 e4 r r8 a16 ( g ) f8 ef d4 r |
 r8 g16 ( f ) e8 ( d c4 d8 ) e f4 r r8 c8 c c d16 ( e d c d e c d e f e d e f d e |
   %}
-R1*7 r4 d4.\f^"(tutti coro)" d8 cs cs d4 e f e d e f8 ( e ) d ( g ) |
-c,4 d g c, f8 f bf a g f16 e a8 g f ( e ) d ( cs ) d d c c |
-bf8 bf bf'8. bf16 a4 r r8 f8 f f f8. f16 f4 r8  f8 f f f8. f16 f4 ef8. ef16 d4 r2 ef4\p e8 e f2 |
-% p2
-bf,4 r4 r2  R1 \bar "||" R1*5 \bar "||"
-r4 r8 g'8\f a a r a bf bf, r8 bf' fs4 fs8 fs g8 g16 g g8 g c, ( d16. ef32 ) f4 |
-bf,4 r8 bf' g4 r8 g e4 e8 e ef ef ef ef d4 cs d4. d8 g,4 r r2 R1 |
-% p3
-r4 d'4.\f d8 cs cs d4 ( e f d ) e r r2 |
-r8 a ( fs ) d g8. ( a16 bf8 ) g d' d, r4 r8 g4 fs8 |
-g8. g,16 g4 r2 r8 c'~ c16 ( d ) c ( bf ) a ( c bf a ) g ( bf a g ) |
-f16 ( g a8~ a16 bf ) a ( g ) f ( a g f ) e ( g f e ) d ( ef f8~ f16 g ) f ( e ) d ( f e d c e d c ) bf4 r4 r8 bf' bf bf |
-a8. a16 a4 r8 a a a gs8. gs16 gs4 gs gs8 gs a a r8 a\p d,4 cs d8. d16 c4 b bf8 bf a2 a\fermata
+  R1*7 r4 d4.\f^"(tutti coro)" d8 cs cs d4 ( e ) f e d e f8 ( e ) d ( g ) |
+  c,4 d g c, f8 f bf a g f16 e a8 g f ( e ) d ( cs ) d d c c |
+  bf8 bf bf'8. bf16 a4 r r8 f8 f f f8. f16 f4 r8  f8 f f f8. f16 f4 ef8. ef16 d4 r2 ef4\p e8 e f2 |
+  % p2
+  bf,4 r4 r2  R1 \bar "||" R1*5 \bar "||"
+  r4 r8 g'8\f a a r a bf bf, r8 bf' fs4 fs8 fs g8 g16 g g8 g c,  d16. ( ef32 ) f4 |
+  bf,4 r8 bf' g4 r8 g e4 e8 e ef ef ef ef d4 cs d4. d8 g,4 r r2 R1 |
+  % p3
+  r4 d'4.\f d8 cs cs d4 ( e f d ) e r r2 |
+  r8 a ( fs ) d g8. ( a16 bf8 ) g d' d, r4 r8 g4 fs8 |
+  g8. g,16 g4 r2 r8 c'~ c16 ( d ) c ( bf ) a ( c bf a ) g ( bf a g ) |
+  f16 ( g a8~ a16 bf ) a ( g ) f ( a g f ) e ( g f e ) d ( ef f8~ f16 g ) f ( e ) d ( f e d c e d c ) bf4 r4 r8 bf' bf bf |
+  a8. a16 a4 r8 a a a gs8. gs16 gs4 gs gs8 gs a a r8 a\p d,4 cs d8. d16 c4 b bf8 bf a2 a\fermata
 }
 
 sopranoVerse = \lyricmode {
-Re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
-re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
-et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
-% solo
-Te de -- cet hy -- mnus De -- us in Si -- on,
-et ti -- bi red -- de -- tur vo -- tum in Je -- ru -- sa -- lem.
-% tutti
-Ex -- au -- di o -- ra -- ti -- o -- nem me -- am ad te o -- mnis ca -- ro ve -- ni -- et.
-Do -- na, do -- na e -- is Do -- mi -- ne do -- na,
-do -- na e -- is re -- qui -- em ae -- ter -- nam,
-ae -- ter -- nam ae -- ter -- nam: et lux per -- pe -- tu -- a,
-et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
-et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
+  Re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
+  re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
+  et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
+  % solo
+  Te de -- cet hy -- mnus De -- us in Si -- on,
+  et ti -- bi red -- de -- tur vo -- tum in Je -- ru -- sa -- lem.
+  % tutti
+  Ex -- au -- di o -- ra -- ti -- o -- nem me -- am ad te o -- mnis ca -- ro ve -- ni -- et.
+  Do -- na, do -- na e -- is Do -- mi -- ne do -- na,
+  do -- na e -- is re -- qui -- em ae -- ter -- nam,
+  ae -- ter -- nam ae -- ter -- nam: et lux per -- pe -- tu -- a,
+  et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
+  et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
 }
 
 altoVerse = \lyricmode {
- Re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
- do -- na e -- is Do -- mi -- ne,
- do -- na e -- is Do -- mi -- ne:
-et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
-% sop solo here
-Ex -- au -- di, ex -- au -- di, ex -- au -- di o -- ra -- ti -- o -- nem me -- am,
-ad te ad te o -- mnis om -- nis ca -- ro ve -- ni -- et.
-Do -- na, do -- na e -- is Do -- mi -- ne do -- na,
-do -- na e -- is re -- qui -- em ae -- ter -- nam,
-do -- na, e -- is Do -- mi -- ne,
-do -- na e -- is,
-do -- na e -- is, do -- na:
- et lux per -- pe -- tu -- a et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
-et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
+  Re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
+  do -- na e -- is Do -- mi -- ne,
+  do -- na e -- is Do -- mi -- ne:
+  et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
+  % sop solo here
+  Ex -- au -- di, ex -- au -- di, ex -- au -- di o -- ra -- ti -- o -- nem me -- am,
+  ad te ad te o -- mnis om -- nis ca -- ro ve -- ni -- et.
+  Do -- na, do -- na e -- is Do -- mi -- ne do -- na,
+  do -- na e -- is re -- qui -- em ae -- ter -- nam,
+  do -- na, e -- is Do -- mi -- ne,
+  do -- na e -- is,
+  do -- na e -- is, do -- na:
+  et lux per -- pe -- tu -- a et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
+  et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
 }
 
 tenorVerse = \lyricmode {
   Re -- qui -- em ae -- ter -- nam do -- na e -- is Do -- mi -- ne,
-re -- qui -- em e -- ter -- nam do -- na e -- is Do -- mi -- ne,
- e -- is Do -- mi -- ne:
-et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
-% sop solo here
-Ex -- au -- di, ex -- au -- di, ex -- au -- di o -- ra -- ti -- o -- nem me -- am,
-ad te ad te o -- mnis om -- nis ca -- ro ve -- ni -- et.
-Re -- qui -- em ae -- ter -- nam
-do -- na, do -- na e -- is do -- na e -- is, do -- na, do -- na, do -- na:
- et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
-et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
+  re -- qui -- em e -- ter -- nam do -- na e -- is Do -- mi -- ne,
+  e -- is Do -- mi -- ne:
+  et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
+  % sop solo here
+  Ex -- au -- di, ex -- au -- di, ex -- au -- di o -- ra -- ti -- o -- nem me -- am,
+  ad te ad te o -- mnis om -- nis ca -- ro ve -- ni -- et.
+  Re -- qui -- em ae -- ter -- nam
+  do -- na, do -- na e -- is do -- na e -- is, do -- na, do -- na, do -- na:
+  et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
+  et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
 }
 
 bassVerse = \lyricmode {
-  % Lyrics follow here.
+  Re -- qui -- em ae -- ter -- nam,  ae -- ter -- nam
+  do -- na e -- is, do -- na do -- na e -- is Do -- mi -- ne,
+  re -- qui -- em e -- ter -- nam do -- na e -- is Do -- mi -- ne,
+  et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at, lu -- ce -- at e -- is.
+  % sop solo here
+  Ex -- au -- di, ex -- au -- di, ex -- au -- di ex -- au -- di o -- ra -- ti -- o -- nem me -- am,
+  ad te ad te ad te o -- mnis om -- nis ca -- ro ve -- ni -- et.
+  Re -- qui -- em ae -- ter -- nam
+  do -- na, do -- na e -- is, e -- is Do -- mi -- ne
+  do -- na, do -- na e -- is, do -- na e -- is, do -- na
+  et lux per -- pe -- tu -- a, et lux per -- pe -- tu -- a lu -- ce -- at e -- is,
+  et lux per -- pe -- tu -- a lu -- ce -- at e -- is.
 
 }
 
@@ -203,7 +222,21 @@ rehearsalMidi = #
     } { \clef bass \bass }
     \addlyrics { \bassVerse }
   >>
-  \layout { }
+  \layout {
+    indent = 2\cm
+    \context {
+      \ChoirStaff
+       \override StaffGrouper.staff-staff-spacing =
+      #'((basic-distance .18)
+         (minimum-distance . 12)
+         (padding . 1))
+    }
+    \context {
+      \Voice
+      \override TextScript.padding = #1
+
+    }
+  }
   \midi {}
 }
 %{
